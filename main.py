@@ -1,14 +1,16 @@
 # Jose Castro
 def encode(password):
-    password = input("Password:")
-
+    encoded_password = []
     for i in range(len(password)):
         result = int(password[i])
         result += 3
-        print(result, end='')
-    print("Your password has been encoded and stored!")
+        encoded_password.append(str(result))
 
-    return result
+    encoded_pass = ''.join(encoded_password)
+    # print(encoded_pass)
+    print("Your password has been encoded and stored!")
+    return encoded_pass
+
 def main():
     menu = True
     while menu:
@@ -18,17 +20,16 @@ def main():
         print("2. Decode")
         print("3. Quit")
 
-        print("Please enter an option: ")
+        print("Please enter an option: ", end='')
 
-        menu_input = input()
+        menu_input = int(input())
 
         if menu_input == 1:
-            print("Please enter your password to encode: ")
+            print("Please enter your password to encode: ", end='')
             password = input()
             encode(password)
-            encoded_pass = encode(password)
         elif menu_input == 2:
-
+             decode()
         else:
             menu = False
 
