@@ -11,6 +11,16 @@ def encode(password):
     print("Your password has been encoded and stored!")
     return encoded_pass
 
+
+def decode(password):
+    decoded = ''
+    for idx in range(len(password)):
+        if int(password[idx]) < 3:
+            decoded += str(((int(password[idx]) - 3) + 10))
+        else:
+            decoded += str(int(password[idx]) - 3)
+    return decoded
+
 def main():
     menu = True
     while menu:
@@ -29,7 +39,7 @@ def main():
             password = input()
             encode(password)
         elif menu_input == 2:
-             decode()
+            decode()
         else:
             menu = False
 
