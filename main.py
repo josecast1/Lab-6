@@ -3,12 +3,11 @@ def encode(password):
     encoded_password = []
     for i in range(len(password)):
         result = int(password[i])
-        result += 3
+        result = (result + 3) % 10
         encoded_password.append(str(result))
 
     encoded_pass = ''.join(encoded_password)
-    # print(encoded_pass)
-    print("Your password has been encoded and stored!")
+    print("Your password has been encoded and stored!\n")
     return encoded_pass
 
 
@@ -37,9 +36,10 @@ def main():
         if menu_input == 1:
             print("Please enter your password to encode: ", end='')
             password = input()
-            encode(password)
+            encoded_pass = encode(password)
         elif menu_input == 2:
-            decode()
+            decoded_pass = decode(encoded_pass)
+            print(f"The encoded password is {encoded_pass} and the original password is {decoded_pass}.\n")
         else:
             menu = False
 
